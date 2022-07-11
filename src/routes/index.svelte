@@ -90,6 +90,7 @@
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://poly.work/orenlindsey">polywork</a></td><td class="text-center">@orenlindsey</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://coolors.co/u/orenlindsey">coolors</a></td><td class="text-center">@orenlindsey</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://codepen.io/oren-lindsey">codepen</a></td><td class="text-center">@oren-lindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://stackblitz.com/@Oren-Lindsey">stackblitz</a></td><td class="text-center">@oren-lindsey</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="mailto:oren@lindsey.studio">email</a></td><td class="text-center">oren@lindsey.studio</td></tr>
         </tbody>
         <style>
