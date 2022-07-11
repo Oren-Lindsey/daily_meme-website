@@ -83,8 +83,8 @@
         <tbody>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://wasteof.money/@ee">wasteof.money</a></td><td class="text-center">@ee</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://scratch.mit.edu/users/scratchusername40">scratch</a></td><td class="text-center">@scratchusername40</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">github</a></td><td class="text-center">Oren-Lindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.npmjs.com/~orenlindsey">npm</a></td><td class="text-center">orenlindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">github</a></td><td class="text-center">@Oren-Lindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.npmjs.com/~orenlindsey">npm</a></td><td class="text-center">@orenlindsey</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://replit.com/@s40">replit</a></td><td class="text-center">@s40</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.guilded.gg/profile/mpQPDENA">guilded</a></td><td class="text-center">@e</td></tr>
         </tbody>
