@@ -76,7 +76,7 @@
     </ul>
     <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">View all of my coding projects</a>
 </Window>
-<Window title="contact" x=220 y=650 gpuAcceleration={gpuAcceleration}>
+<Window title="contact" x=420 y=250 gpuAcceleration={gpuAcceleration}>
     <table class="table-auto w-full rounded-[5px]">
         <caption class="m-1">How to contact me</caption>
         <thead class="bg-gray-300 rounded-[5px]"><tr><td class="text-center">site</td><td class="text-center">username</td></tr></thead>
@@ -87,6 +87,10 @@
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.npmjs.com/~orenlindsey">npm</a></td><td class="text-center">@orenlindsey</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://replit.com/@s40">replit</a></td><td class="text-center">@s40</td></tr>
             <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.guilded.gg/profile/mpQPDENA">guilded</a></td><td class="text-center">@e</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://poly.work/orenlindsey">polywork</a></td><td class="text-center">@orenlindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://coolors.co/u/orenlindsey">coolors</a></td><td class="text-center">@orenlindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://codepen.io/oren-lindsey">codepen</a></td><td class="text-center">@oren-lindsey</td></tr>
+            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="mailto:oren@lindsey.studio">email</a></td><td class="text-center">oren@lindsey.studio</td></tr>
         </tbody>
         <style>
             tbody tr:hover {
