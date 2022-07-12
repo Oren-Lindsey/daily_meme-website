@@ -4,6 +4,7 @@
 </script>
 <svelte:window on:mousemove="{updateMouse}" />
 <script>
+    import { MetaTags } from 'svelte-meta-tags';
     import { onMount } from 'svelte';
     import Window from '../components/Window.svelte'
     import Konami from '../components/Konami.svelte'
@@ -132,3 +133,38 @@
         }
     }
 </style>
+<MetaTags
+  title="Oren Lindsey"
+  description="Oren Lindsey - Fullstack Web Developer"
+  canonical="https://lindsey.studio/"
+  openGraph={{
+    type: 'website',
+    url: 'https://www.url.ie/a',
+    title: 'Open Graph Title',
+    description: 'Open Graph Description',
+    images: [
+      {
+        url: 'https://lindsey.studio/Tree-1-dragged.jpg.webp',
+        width: 2048,
+        height: 2048,
+        alt: 'Tree Image'
+      }
+    ],
+    site_name: 'Oren Lindsey',
+    profile: {
+        firstName: 'Oren',
+        lastName: 'Lindsey',
+        gender: 'Male'
+    }
+  }}
+  twitter={{
+    cardType: 'summary_large_image',
+    title: 'Oren Lindsey',
+    description: 'Oren Lindsey - Fullstack Web Developer',
+    image: 'https://lindsey.studio/Tree-1-dragged.jpg.webp',
+    imageAlt: 'Tree Image'
+  }}
+  facebook={{
+    appId: '1234567890'
+  }}
+/>
