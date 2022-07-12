@@ -5,7 +5,6 @@
 <svelte:window on:mousemove="{updateMouse}" />
 <script>
     import { MetaTags } from 'svelte-meta-tags';
-    import { onMount } from 'svelte';
     import Window from '../components/Window.svelte'
     import Konami from '../components/Konami.svelte'
     import Ksg from '../components/Ksg.svelte'
@@ -30,9 +29,6 @@
         time = new Date()
     }, 1000)
     let gpuAcceleration = true
-    onMount(async () => {
-        loaded = true
-    })
 </script>
 <noscript>
     <h1 class="text-white text-3xl text-center shadow-lg">Please enable javascript to fully experience this site</h1>
