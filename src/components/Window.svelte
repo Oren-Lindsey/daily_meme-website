@@ -27,7 +27,7 @@
         options = { gpuAcceleration: true, defaultPosition: defaultPos, position: {x: 0, y: 0}, handle: '.drag-handle' }
         e.target.setAttribute('draggable', 'false')
         options = { gpuAcceleration: gpuAcceleration, position: {x:0, y:0}, defaultPosition: defaultPos, disabled: true, bounds: { left: 0, top: 0, bottom: 0, right: 0 }, handle: '.drag-handle' }
-        e.target.style.cursor = 'pointer'
+        nodeRef.firstChild.style.cursor = 'pointer'
     }
     function minimize(e) {
         nodeRef.classList.remove('min-w-[100vw]')
@@ -43,10 +43,10 @@
             options = { gpuAcceleration: gpuAcceleration, defaultPosition: defaultPos, disabled: disabled, bounds: { left: 0, top: 0, bottom: 0, right: 0 }, handle: '.drag-handle' }
         }
         maximized = false
-        e.target.style.cursor = 'grab'
+        nodeRef.firstChild.style.cursor = 'grab !important'
     }
     function startDrag(e) {
-        e.target.style.cursor = 'grabbing'
+        nodeRef.firstChild.style.cursor = 'grabbing'
         let topLayer = localStorage.getItem('window-topLayer')
         if (topLayer !== null) {
             topLayer = parseInt(topLayer)
@@ -61,38 +61,44 @@
         localStorage.setItem('window-topLayer', layer)
     }
     function endDrag(e) {
-        e.target.style.cursor = 'grab'
+        nodeRef.firstChild.style.cursor = 'grab'
     }
     onMount(() => {
         window.localStorage.setItem('window-topLayer', 0)
     })
 </script>
-<div class="cursor-grab rounded-[5px] bg-[#ececec] break-words window-shadow resizable max-w-[100vw] min-w-[300px] min-h-fit absolute" draggable={disabled} use:draggable={options} on:neodrag:start={(e) => startDrag(e)} on:neodrag:end={(e) => endDrag(e)} bind:this={nodeRef}>
-    <div class="w-full rounded-t-[5px] top-[5px] bottom-[5px] left-[6px] pt-1 bg-gray-500 top-bar flex align-items-start drag-handle">
-        <button title="Close window" class="bg-[#ff5f58] border-[#e1483f] m-1 mb-2 ml-2 h-[12px] w-[12px] rounded-full border-solid border cursor-pointer inline z-10 active:bg-[#bf4942]" on:click={delElement}></button>
-        <button title="Minimize window" class="bg-[#ffbe2f] border-[#e0a028] m-1 mb-2 h-[12px] w-[12px] rounded-full border-solid border cursor-pointer inline z-10 active:bg-[#bf8e22]" on:click={minimize}></button>
-        <button title="Maximize window" class="bg-[#2ac940] border-[#2bac2d] m-1 mb-2 h-[12px] w-[12px] rounded-full border-solid border cursor-pointer inline z-10 active:bg-[#1d9730]" on:click={maximize}></button>
-        <div class="absolute grid place-items-center w-full z-[1]">
-            <p class="text-[#423f42] mb-2 mt-[-3px]">{title}</p>
+<div class="border rounded-none bg-gray-300 break-words resizable max-w-[100vw] min-w-[300px] min-h-fit w-fit absolute overflow-x-hidden" draggable={disabled} use:draggable={options} on:neodrag:start={(e) => startDrag(e)} on:neodrag:end={(e) => endDrag(e)} bind:this={nodeRef} title={title}>
+    <div class="min-h-[30px] p-1 top-bar drag-handle overflow-x-hidden cursor-grab">
+        <div class="absolute right-0 mr-2 z-[1000000000000]">
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Minimize window" on:click={minimize}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-iconize.jpg" alt="Minimize window" /></button>
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Maximize window" on:click={maximize}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-resize.jpg" alt="Maximize window" /></button>
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Close window" on:click={delElement}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-close.jpg" alt="Close window" /></button>
+        </div>
+        <div class="break-words absolute text-left top-[8px] float-left w-full z-[1]">
+            <p class="text-[white] mb-2 mt-[-3px]" style="font-size: 1.2vw">{title}</p>
         </div>
     </div>
-    <div id="content" class="break-words grid place-items-center p-2">
+    <div id="content" class="break-words p-2 overflow-x-hidden z-[10000000000000] cursor-auto text-center max-w-[80vw] min-w-fit grid place-items-center">
         <slot />
     </div>
 </div>
 <style>
-    .top-bar {
-        background-image: linear-gradient(180deg,#e7e6e7,#d1d0d1);
-        box-shadow: inset 0 0 0 0 hsla(0,0%,100%,.6),inset 0 0 0 0 rgba(0,0,0,.2)
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+    * {
+        font-family: 'Courier Prime', monospace;
+        overflow-x: hidden !important;
     }
-    .window-shadow {
-        box-shadow: 0 0 1px 0 rgba(0,0,0,.9),0 20px 30px 0 rgba(0,0,0,.3),0 10px 50px 0 rgba(0,0,0,.2)
+    .top-bar {
+        background-image: linear-gradient(90deg, rgba(51,78,165,1) 0%, rgba(76,127,193,1) 100%);
     }
     .resizable {
         resize:both;
         overflow:auto;
     }
-    *::-webkit-resizer {
-        background-color: transparent
+    .border {
+        border: 4px ridge #d8d8d8
+    }
+    .button {
+        border: 1px outset #dad7d2
     }
 </style>

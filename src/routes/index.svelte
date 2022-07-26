@@ -1,117 +1,31 @@
 <script context="module">
     export const prerender = true;
-    import { page } from '$app/stores';
 </script>
-<svelte:window on:mousemove="{updateMouse}" />
 <script>
     import { MetaTags } from 'svelte-meta-tags';
     import Window from '../components/Window.svelte'
-    import Konami from '../components/Konami.svelte'
-    import Ksg from '../components/Ksg.svelte'
-    let konami = false
-    let ksg = false
-    let showGhost = false
-    $: if (konami) {
-        document.write(`<img src="https://alaska---alaska.com/wp-content/uploads/2020/01/not-seized.jpg" width=1000 class="w-screen min-w-screen" alt="This site has not been seized." />`)
-    }
-    $: if (ksg) {
-        showGhost = true;
-    }
-    let mouseX = 0
-    let mouseY = 0
-    let time = new Date()
-    async function updateMouse(e) {
-        mouseX = e.clientX
-        mouseY = e.clientY
-    }
-    $: currenttime = time.toLocaleString()
-    setInterval(() => {
-        time = new Date()
-    }, 1000)
     let gpuAcceleration = true
 </script>
 <noscript>
     <h1 class="text-white text-3xl text-center shadow-lg">Please enable javascript to fully experience this site</h1>
 </noscript>
 <div class="desktop">
-<Konami bind:konami />
-<Ksg bind:ksg />
-<Window title="stats.app" x=60 y=70 gpuAcceleration={gpuAcceleration}>
-    <div class="inline text-center">
-        Mouse X: <code>{mouseX}</code>
-        <br>
-        Mouse Y: <code>{mouseY}</code>
-        <br>
-        Time: <code>{currenttime}</code>
-        <br>
-        Current URL: <code>{$page.url.href}</code>
-        <br>
-        GPU Acceleration: <code>{gpuAcceleration}</code>
+    <div class="absolute left-0 top-0 h-screen max-h-screen overflow-y-hidden bg-[#018281] w-[124px] window-border">
+        <p class="text-center text-white text-xl mono-font">Links</p>
     </div>
-</Window>
-<Window title="about.txt - editor" x=200 y=100 gpuAcceleration={gpuAcceleration}>
-    <textarea id="textarea" class="bg-transparent box-border font-sans min-w-max w-full h-72 m-0 p-2">Hi, I'm Oren. I'm a full stack web developer (sveltekit ftw!) and I live in North Carolina (it's the best state)</textarea>
-</Window>
-<Window title="coding projects" x=100 y=450 gpuAcceleration={gpuAcceleration}>
-    <ul class="grid grid-cols-1 place-items-center">
-        <li>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://list.lindsey.studio"><code>list-v2</code> - a wishlist website</a>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey/list-v2"><img loading=lazy class="inline" src="/GitHub-Mark-32px.png" width=16 alt="github logo" /></a>
-        </li>
-        <li>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://quack.lindsey.studio"><code>Quack</code> - share and answer questions</a>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey/quack"><img loading=lazy class="inline" src="/GitHub-Mark-32px.png" width=16 alt="github logo" /></a>
-        </li>
-        <li>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey/wasteof-client3"><code>wasteof-client</code> - npm package for wasteof.money</a>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey/wasteof-client3"><img loading=lazy class="inline" src="/GitHub-Mark-32px.png" width=16 alt="github logo" /></a>
-        </li>
-        <li>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://lindsey.studio"><code>lindsey.studio</code> - this website</a>
-            <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey/lindsey.studio"><img loading=lazy class="inline" src="/GitHub-Mark-32px.png" width=16 alt="github logo" /></a>
-        </li>
-    </ul>
-    <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">View all of my coding projects</a>
-</Window>
-<Window title="contact" x=420 y=250 gpuAcceleration={gpuAcceleration}>
-    <table class="table-auto w-full rounded-[5px]">
-        <caption class="m-1">How to contact me</caption>
-        <thead class="bg-gray-300 rounded-[5px]"><tr><td class="text-center">site</td><td class="text-center">username</td></tr></thead>
-        <tbody>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://wasteof.money/@ee">wasteof.money</a></td><td class="text-center">@ee</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://scratch.mit.edu/users/scratchusername40">scratch</a></td><td class="text-center">@scratchusername40</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">github</a></td><td class="text-center">@Oren-Lindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.npmjs.com/~orenlindsey">npm</a></td><td class="text-center">@orenlindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://replit.com/@s40">replit</a></td><td class="text-center">@s40</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://www.guilded.gg/profile/mpQPDENA">guilded</a></td><td class="text-center">@e</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://poly.work/orenlindsey">polywork</a></td><td class="text-center">@orenlindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://coolors.co/u/orenlindsey">coolors</a></td><td class="text-center">@orenlindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://codepen.io/oren-lindsey">codepen</a></td><td class="text-center">@oren-lindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="https://stackblitz.com/@Oren-Lindsey">stackblitz</a></td><td class="text-center">@oren-lindsey</td></tr>
-            <tr class="transition ease-in-out delay-75"><td><a class="text-center decoration underline-offset-1 hover:underline inline m-1" href="mailto:oren@lindsey.studio">email</a></td><td class="text-center">oren@lindsey.studio</td></tr>
-        </tbody>
-        <style>
-            tbody tr:hover {
-                background-color: rgb(229 231 235 / 1);
-            }
-        </style>
-    </table>
-</Window>
+    <a href="https://wasteof.money/@daily_meme"><img src="https://wasteof.money/brand/nav-logo.svg" alt="My pfp" title="My pfp" class="absolute top-[20px] left-0 m-[10px] w-[100px]" /></a>
+    <Window x=20 y=100 gpuAcceleration={gpuAcceleration} title="About me"><p>Hi I'm daily_meme i'm a 13 year old boy who likes to post memes and do graphic design stuff and i like to sleep (sometimes)</p></Window>
+    <Window x=200 y=300 gpuAcceleration={gpuAcceleration} title="Pictures"><p class="grid place-items-center">Pictures here</p></Window>
+    <Window x=400 y=500 gpuAcceleration={gpuAcceleration} title="ratio">
+        <p class="text-xl">Ratio</p>
+        <a href="https://wasteof.money/@ratio"><img src="https://beta.wasteof.money/users/ratio/picture" class="h-[100px]" alt="ratio's pfp" /></a>
+    </Window>
 </div>
 <div class="mobile w-full">
-    <Window x=0 y=0 gpuAcceleration={gpuAcceleration} title="about.txt" disabled>
-        <p>Hi, I'm Oren. I'm a full stack web developer (sveltekit ftw!) and I live in North Carolina (it's the best state)</p>
-        <a class="decoration underline-offset-1 hover:underline inline m-1" href="https://github.com/oren-lindsey">See all of my coding projects on GitHub</a>
-    </Window>
-    <img src="/kidsseeghosts.png" alt="kids see ghosts" width=100  class="absolute bottom-[12%] right-[30%] z-[20000000000000000000000000000000000000000000000000000000000000000000000000000000000000]" />
+    <Window x=0 y=0 gpuAcceleration={gpuAcceleration} title="Daily Meme"><p>:P</p></Window>
 </div>
-{#if showGhost}
-<img src="/kidsseeghosts.png" alt="kids see ghosts" width=100  class="absolute bottom-[15%] right-[12%] z-[20000000000000000000000000000000000000000000000000000000000000000000000000000000000000]" />
-{/if}
 <style>
-    #textarea::-webkit-resizer {
-        background-color: transparent
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
     @media (max-width: 640px) {
         .desktop {
             display: none !important;
@@ -128,39 +42,25 @@
             display: block !important;
         }
     }
+    .mono-font {
+        font-family: 'Courier Prime', monospace;
+    }
+    .window-border {
+        border-right: 4px ridge #d8d8d8
+    }
 </style>
 <MetaTags
-  title="Oren Lindsey"
-  description="Oren Lindsey - Fullstack Web Developer"
-  canonical="https://lindsey.studio/"
+  title="daily_meme"
+  description="daily_meme's website"
   openGraph={{
     type: 'website',
-    url: 'https://www.url.ie/a',
-    title: 'Open Graph Title',
-    description: 'Open Graph Description',
-    images: [
-      {
-        url: 'https://lindsey.studio/Tree-1-dragged.jpg.webp',
-        width: 2048,
-        height: 2048,
-        alt: 'Tree Image'
-      }
-    ],
-    site_name: 'Oren Lindsey',
-    profile: {
-        firstName: 'Oren',
-        lastName: 'Lindsey',
-        gender: 'Male'
-    }
+    title: 'daily_meme',
+    description: `daily_meme's website`,
+    site_name: 'daily_meme',
   }}
   twitter={{
     cardType: 'summary_large_image',
-    title: 'Oren Lindsey',
-    description: 'Oren Lindsey - Fullstack Web Developer',
-    image: 'https://lindsey.studio/Tree-1-dragged.jpg.webp',
-    imageAlt: 'Tree Image'
-  }}
-  facebook={{
-    appId: '1234567890'
+    title: 'daily_meme',
+    description: `daily_meme's website`
   }}
 />
