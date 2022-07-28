@@ -6,6 +6,7 @@
     export let y
     export let gpuAcceleration
     export let disabled
+    disabled = !disabled
     let maximized = false
     let layer = 1
     let defaultPos = {x: x, y: y}
@@ -67,15 +68,15 @@
         window.localStorage.setItem('window-topLayer', 0)
     })
 </script>
-<div class="border rounded-none bg-gray-300 break-words resizable max-w-[100vw] min-w-[300px] min-h-fit w-fit absolute overflow-x-hidden" draggable={disabled} use:draggable={options} on:neodrag:start={(e) => startDrag(e)} on:neodrag:end={(e) => endDrag(e)} bind:this={nodeRef} title={title}>
+<div class="border rounded-none bg-gray-300 break-words resizable max-w-[100vw] min-w-[300px] min-h-fit w-fit absolute overflow-x-hidden transition timing" draggable={disabled} use:draggable={options} on:neodrag:start={(e) => startDrag(e)} on:neodrag:end={(e) => endDrag(e)} bind:this={nodeRef} title={title}>
     <div class="min-h-[30px] p-1 top-bar drag-handle overflow-x-hidden cursor-grab">
         <div class="absolute right-0 mr-2 z-[1000000000000]">
-            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Minimize window" on:click={minimize}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-iconize.jpg" alt="Minimize window" /></button>
-            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Maximize window" on:click={maximize}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-resize.jpg" alt="Maximize window" /></button>
-            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Close window" on:click={delElement}><img class="h-[1.2vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-close.jpg" alt="Close window" /></button>
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Minimize window" on:click={minimize}><img class="h-[0.8vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-iconize.jpg" alt="Minimize window" /></button>
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Maximize window" on:click={maximize}><img class="h-[0.8vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-resize.jpg" alt="Maximize window" /></button>
+            <button class="button mt-[0.1vw] ml-[1px] cursor-pointer" title="Close window" on:click={delElement}><img class="h-[0.8vw]" src="https://canary---yellow.com/wp-content/themes/virgilabloh/images/icon-close.jpg" alt="Close window" /></button>
         </div>
-        <div class="break-words absolute text-left top-[8px] float-left w-full z-[1]">
-            <p class="text-[white] mb-2 mt-[-3px]" style="font-size: 1.2vw">{title}</p>
+        <div>
+            <p class="absolute top-[10px] text-[white] align-middle mb-2 mt-[-3px] break-words text-left float-left w-full z-[1]" style="font-size: 0.8vw">{title}</p>
         </div>
     </div>
     <div id="content" class="break-words p-2 overflow-x-hidden z-[10000000000000] cursor-auto text-center max-w-[80vw] min-w-fit grid place-items-center">
@@ -100,5 +101,8 @@
     }
     .button {
         border: 1px outset #dad7d2
+    }
+    .timing {
+        transition-timing-function: cubic-bezier(0, 0.33, 0.66, 1);
     }
 </style>
